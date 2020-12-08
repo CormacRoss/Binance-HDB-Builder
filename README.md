@@ -23,7 +23,7 @@ timeframe | Yes | Timeframe for data
 
 # Example
 
-     Download 1m Bitcoin Data for all of 2020:
+Download 1m Bitcoin Data for all of 2020:
      ~:cross@homer$ pyq .getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol BTC/USDT  -hdb /home/cross/hdb  -timeframe 1m -replace 0
      Complete: 1m BTC/USDT data saved to: :/home/cross/hdb/2020.01.01/ohlc
      Complete: 1m BTC/USDT data saved to: :/home/cross/hdb/2020.01.02/ohlc
@@ -31,7 +31,7 @@ timeframe | Yes | Timeframe for data
      ...
 
 Add 2020 1m Ethereum to our HDB:
-~:cross@homer$ pyq .getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol ETH/USDT  -hdb /home/cross/hdb  -timeframe 1m -replace 0
+     ~:cross@homer$ pyq .getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol ETH/USDT  -hdb /home/cross/hdb  -timeframe 1m -replace 0
      Complete: 1m ETH/USDT data saved to: :/home/cross/hdb/2020.01.01/ohlc
      Complete: 1m ETH/USDT data saved to: :/home/cross/hdb/2020.01.02/ohlc
      Complete: 1m ETH/USDT data saved to: :/home/cross/hdb/2020.01.03/ohlc

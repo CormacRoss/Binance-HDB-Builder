@@ -13,14 +13,14 @@ This script requires the pyq python library:
 
 # User inputs
 
-Flag | Required | Description 
---- | --- | --- 
-start | Yes | Start date
-end | Yes | End date
-symbol | Yes | Currency pair
-hdb | Yes | KDB HDB path
-replace | No (default=0) | 0 = Append data to hdb, 1 = Replace/overwrite data
-timeframe | Yes | Timeframe for data
+| Flag | Required | Description |
+| :--- | :--- | :--- |
+| start | Yes | Start date |
+| end | Yes | End date |
+| symbol | Yes | Currency pair |
+| hdb | Yes | KDB HDB path |
+| replace | No (default=0) | 0 = Append data to hdb, 1 = Replace/overwrite data |
+| timeframe | Yes | Timeframe for data |
 
 # Example
 

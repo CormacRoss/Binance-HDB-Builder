@@ -65,7 +65,7 @@ Now lets add 1m XRP to our HDB:
      Complete: 1m XRP/USDT data saved to: :/home/cross/hdb/2020.01.03/ohlc
      ...
 
-Lets overwite (replace=1) all 2020 KDB paritions with 5m XRP data, this will remove all the 1m we have just saved:
+Lets overwite (replace=1) all 2020 KDB paritions with 5m XRP data, this will remove all the 1m data we have just saved:
 
      ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol XRP/ETH -hdb /home/cross/hdb -timeframe 1m -replace 1
      Complete: 1m XRP/ETH data saved to: :/home/cross/hdb/2020.01.01/ohlc

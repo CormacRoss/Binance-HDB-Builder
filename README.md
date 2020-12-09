@@ -1,7 +1,7 @@
 
 # Binance HDB Builder
 
-Binance HDB builder allows users to build a crypto currency KDB database in just a few minutes. The script can be used to collect the full history for any crypto currency pair traded on Binance using the ccxt library.
+Binance HDB builder allows users to build a crypto currency KDB database in just a few minutes. The script can be used to collect the full price history of any crypto currency pair traded on Binance using the ccxt library.
 
 This work was inspired by [Backtest Rookies.](https://backtest-rookies.com/2018/03/08/download-cryptocurrency-data-with-ccxt/)
 
@@ -11,7 +11,7 @@ This script requires the pyq python library:
 
      pip install pyq
 
-# User Input
+# User Inputs
 
 | Flag | Required | Description |
 | :--- | :--- | :--- |
@@ -20,7 +20,7 @@ This script requires the pyq python library:
 | symbol | Yes | Currency pair |
 | hdb | Yes | KDB HDB path |
 | replace | No (default=0) | 0 = Append data to hdb, 1 = Replace/overwrite data |
-| timeframe | Yes | Timeframe for data |
+| timeframe | No(default=1m) | Timeframe for data |
 
 # Example
 

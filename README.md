@@ -7,9 +7,10 @@ This work was inspired by [Backtest Rookies.](https://backtest-rookies.com/2018/
 
 # Requirements
 
-This script requires the pyq python library:
+This script requires the pyq and ccxt python libraries:
 
      pip install pyq
+     pip install ccxt
 
 # User Inputs
 
@@ -22,27 +23,51 @@ This script requires the pyq python library:
 | replace | No (default=0) | 0 = Append data to hdb, 1 = Replace/overwrite data |
 | timeframe | No(default=1m) | Timeframe for data |
 
-# Example
+# Timeframe
+
+The data returned will contains the OHLC prices within the specified timeframe along with the sum of the volume. The following time frames are available:
+
+- 1m 
+- 5m 
+- 15m
+- 30m
+- 1h
+- 2h
+- 3h
+- 4h
+- 6h
+- 12h
+- 1d
+
+# Example Use
 
 Download 1m Bitcoin Data for all of 2020:
 
-     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol BTC/USDT  -hdb /home/cross/hdb  -timeframe 1m -replace 0
+     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol BTC/USDT -hdb /home/cross/hdb -timeframe 1m -replace 0
      Complete: 1m BTC/USDT data saved to: :/home/cross/hdb/2020.01.01/ohlc
      Complete: 1m BTC/USDT data saved to: :/home/cross/hdb/2020.01.02/ohlc
      Complete: 1m BTC/USDT data saved to: :/home/cross/hdb/2020.01.03/ohlc
      ...
 
-Add 2020 1m Ethereum to our HDB:
+Add 1m Ethereum for all of 2020 to our HDB:
 
-     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol ETH/USDT  -hdb /home/cross/hdb  -timeframe 1m -replace 0
+     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol ETH/USDT -hdb /home/cross/hdb -timeframe 1m -replace 0
      Complete: 1m ETH/USDT data saved to: :/home/cross/hdb/2020.01.01/ohlc
      Complete: 1m ETH/USDT data saved to: :/home/cross/hdb/2020.01.02/ohlc
      Complete: 1m ETH/USDT data saved to: :/home/cross/hdb/2020.01.03/ohlc
      ...
 
-Lets overwite (replace=1) all 2020 KDB paritions with 5m XRP data:
+Now lets add 1m XRP to our HDB:
 
-     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol XRP/ETH  -hdb /home/cross/hdb  -timeframe 1m -replace 0
+     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol XRP/USDT -hdb /home/cross/hdb -timeframe 1m -replace 0
+     Complete: 1m XRP/USDT data saved to: :/home/cross/hdb/2020.01.01/ohlc
+     Complete: 1m XRP/USDT data saved to: :/home/cross/hdb/2020.01.02/ohlc
+     Complete: 1m XRP/USDT data saved to: :/home/cross/hdb/2020.01.03/ohlc
+     ...
+
+Lets overwite (replace=1) all 2020 KDB paritions with 5m XRP data, this will remove all the 1m we have just saved:
+
+     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol XRP/ETH -hdb /home/cross/hdb -timeframe 1m -replace 1
      Complete: 1m XRP/ETH data saved to: :/home/cross/hdb/2020.01.01/ohlc
      Complete: 1m XRP/ETH data saved to: :/home/cross/hdb/2020.01.02/ohlc
      Complete: 1m XRP/ETH data saved to: :/home/cross/hdb/2020.01.03/ohlc
@@ -72,3 +97,22 @@ Lets overwite (replace=1) all 2020 KDB paritions with 5m XRP data:
      2020.01.01 BTC/USDT binance  2020.01.01D00:13:00.000000000 7187.02 7187.02 7181.61 7182.08 13.23039
      2020.01.01 BTC/USDT binance  2020.01.01D00:14:00.000000000 7181.6  7182.1  7180.24 7180.97 9.111809
      ..
+
+# Currency Pairs
+
+When an invalid sym is entered all possible currency pairs on Binance will be displayed:
+
+     ~:cross@host$ pyq getbinance.py -start 2020-01-01 -end 2020-12-01 -symbol INVALID/SYM  -hdb /home/cross/hdb  -timeframe 1m -replace 0
+     ------------------------------------  ERROR  -----------------------------------
+     The requested symbol (INVALID/SYM) is not available from binance
+     
+     Available symbols are:
+       - AAVE/BKRW
+       - AAVE/BNB
+       - AAVE/BTC
+       - AAVE/BUSD
+       - AAVE/ETH
+       - AAVE/USDT
+       - AAVEDOWN/USDT
+       - AAVEUP/USDT
+       ...

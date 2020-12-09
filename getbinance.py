@@ -85,5 +85,3 @@ for td in since:
   ohlc = ccxt_request(td)
   ohlc = kdb_cast(ohlc)
   kdb_save(td,ohlc,args.hdb)
-
-#import pdb; pdb.set_trace()
